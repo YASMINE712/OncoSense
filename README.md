@@ -1,6 +1,6 @@
-# Mammography AI: Computer Vision & Data Pipeline Showcase
+# OncoSense: Mammography AI Computer-Vision Showcase
 
-> Portfolio summary of an internship deep-learning project. The implementation, data, model weights, and clinical records remain private.
+> Public-safe portfolio summary of an internship deep-learning project. The implementation, data, model weights, and clinical records remain private.
 
 ## The project in brief
 
