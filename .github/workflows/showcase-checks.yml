@@ -13,6 +13,7 @@ jobs:
         run: |
           test -f README.md
           test -f docs/technical-overview.md
+          test -f docs/pseudocode.md
           test -f docs/publication-boundaries.md
           test -f assets/ml-workflow.svg
           test -f assets/training-curve.png

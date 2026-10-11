@@ -50,4 +50,4 @@ The diagrams and documentation explain the technical work without distributing r
 
 For a future reproducible research release, I would formalize a validated dataset manifest, use patient-level split controls, add a held-out evaluation protocol, version experiments and configurations, and publish only approved aggregate results and synthetic examples.
 
-See [the technical overview](docs/technical-overview.md) and [publication boundaries](docs/publication-boundaries.md).
+See [the technical overview](docs/technical-overview.md), [safe pseudocode](docs/pseudocode.md), and [publication boundaries](docs/publication-boundaries.md).
