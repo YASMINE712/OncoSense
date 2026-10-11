@@ -1,45 +1,69 @@
-# Safe pseudocode: image-classification experiment
+# Safe pseudocode: two computer-vision paths
 
-This is a high-level representation of the private workflow. It explains the design without reproducing internship source code, dataset details, weights, or paths.
+This describes the implementation design without publishing private source code, images, masks, row-level data, weights or filesystem paths.
+
+## Path A: manifest-driven binary classification
 
 ```text
-INPUT: approved manifest with image reference, label, and split
+INPUT: train manifest and held-out manifest
 
-validate manifest schema and required values
-resolve each image through an approved data root
-reject unreadable records and record the reason
+read CSV records containing image reference and binary pathology label
+for each record:
+    open referenced PNG image
+    convert image to RGB
+    resize to 224 x 224
+    convert image to tensor
+    apply ImageNet normalization
+    return tensor and label
 
-for each training image:
-    load image
-    convert to model-compatible channels
-    resize to the configured input resolution
-    normalize using the selected pretrained-backbone recipe
-    return tensor and binary experimental label
-
-initialize a pretrained convolutional backbone
-replace its final layer with a two-class prediction head
-compute class weights from training labels
+select a pretrained CNN candidate:
+    ResNet50, VGG16 or DenseNet121
+replace final layer with a two-output classifier
+compute class weights from the training labels
 
 for each epoch:
-    train with weighted cross-entropy and optimizer updates
-    evaluate on the validation split
-    record loss and classification metrics
-    save the checkpoint when the selected validation criterion improves
-    stop when validation improvement has plateaued
+    train with weighted cross-entropy and Adam
+    use mixed precision when CUDA is available
+    evaluate against held-out manifest
+    record loss, accuracy, F1, precision and recall
+    save latest checkpoint
+    save best checkpoint when validation F1 improves
+    stop after 10 validation epochs without improvement
+```
 
-export run metadata, metrics, learning curves, and checkpoint identity
+## Path B: lesion localisation and crop preparation
+
+```text
+INPUT: full mammogram reference, lesion-mask reference, experimental label
+
+locate full mammogram using patient ID, side and view
+read the lesion mask
+find non-zero mask pixels
+derive xmin, ymin, xmax and ymax from mask extents
+
+for each detector training image:
+    with 0.5 probability, flip image horizontally and mirror x box coordinates
+    with 0.5 probability, flip image vertically and mirror y box coordinates
+    train Faster R-CNN with a ResNet50-FPN backbone
+    retain checkpoint with lowest mean training loss
+
+for crop preparation when explicit box columns are available:
+    expand the lesion box by 35 percent for contextual tissue
+    clip crop bounds to image dimensions
+    save crop reference and binary label for a downstream classifier
 ```
 
 ## Technology mapping
 
-| Pseudocode stage | Applied tools and concepts |
+| Stage | Applied implementation |
 | --- | --- |
-| Manifest reading and validation | Python, Pandas, CSV metadata, data-quality checks |
-| Image preparation | Pillow, Torchvision transforms, resizing, normalization |
-| Dataset and batching | PyTorch `Dataset` and `DataLoader` |
-| Transfer learning | Torchvision pretrained ResNet50, VGG16, or DenseNet121 backbones |
-| Imbalance handling | Weighted cross-entropy |
-| Training efficiency | CUDA detection and optional automatic mixed precision |
-| Tracking | Metrics, checkpoints, learning curves, JSON artifacts |
+| Manifest preparation | Python, Pandas, CSV records, path resolution |
+| Image and mask handling | Pillow, OpenCV helper, NumPy |
+| Classification batching | PyTorch `Dataset` and `DataLoader` |
+| Classification models | Torchvision ResNet50, VGG16 and DenseNet121 |
+| Detection model | Torchvision Faster R-CNN with ResNet50-FPN |
+| Detection augmentation | Coordinate-aware horizontal and vertical flips |
+| Optimisation | Adam for classification; SGD with momentum, warm-up and cosine scheduling for detection |
+| Tracking | Checkpoints, learning curve and classification metrics |
 
-This describes an exploratory research workflow. It does not claim that a model is clinically validated or ready for deployment.
+The pseudocode is a portfolio explanation, not an assertion of clinical validation or an end-to-end production deployment.

@@ -1,25 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="530" viewBox="0 0 1200 530" role="img" aria-labelledby="title desc">
-  <title id="title">Mammography machine-learning workflow</title>
-  <desc id="desc">A high-level workflow from restricted imaging data to metadata manifests, preprocessing, model training, and experiment artifacts.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">OncoSense breast-cancer computer-vision architecture</title>
+  <desc id="desc">Two experimental paths: manifest-driven binary classification and lesion localisation with crop preparation.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#102c3d"/></linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#24c6b4"/><stop offset="1" stop-color="#50a7ff"/></linearGradient>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#020814" flood-opacity=".42"/></filter>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#70abc1"/></marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#18384a"/></linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#50a7ff"/><stop offset="1" stop-color="#7f77ff"/></linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#24c6b4"/><stop offset="1" stop-color="#54dc90"/></linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#85bdd0"/></marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#020814" flood-opacity=".45"/></filter>
   </defs>
-  <rect width="1200" height="530" fill="url(#bg)" rx="28"/>
-  <text x="70" y="78" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#f1f8fb">From restricted imaging assets to ML experiment evidence</text>
-  <text x="70" y="113" font-family="Arial, sans-serif" font-size="18" fill="#a8c6d5">A high-level portfolio view — private code, data, and weights stay outside this repository.</text>
-  <g filter="url(#shadow)">
-    <rect x="70" y="190" width="202" height="184" rx="18" fill="#123247" stroke="#2e6f89"/><rect x="306" y="190" width="202" height="184" rx="18" fill="#123247" stroke="#2e6f89"/><rect x="542" y="190" width="202" height="184" rx="18" fill="#123247" stroke="#2e6f89"/><rect x="778" y="190" width="202" height="184" rx="18" fill="#123247" stroke="#2e6f89"/><rect x="1014" y="190" width="116" height="184" rx="18" fill="#123247" stroke="#2e6f89"/>
+  <rect width="1400" height="760" rx="28" fill="url(#bg)"/>
+  <text x="70" y="76" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#f2f9fc">OncoSense: two breast-cancer computer-vision paths</text>
+  <text x="70" y="112" font-family="Arial, sans-serif" font-size="19" fill="#afd0de">Portfolio architecture based on private code. Images, masks, source code and weights are excluded from this public showcase.</text>
+
+  <g filter="url(#shadow)" font-family="Arial, sans-serif">
+    <rect x="70" y="160" width="270" height="180" rx="18" fill="#123247" stroke="#36748c"/>
+    <text x="98" y="207" font-size="21" font-weight="700" fill="#f3fbff">Restricted inputs</text>
+    <text x="98" y="242" font-size="17" fill="#b3d4e1">PNG mammograms</text>
+    <text x="98" y="270" font-size="17" fill="#b3d4e1">CSV metadata and labels</text>
+    <text x="98" y="298" font-size="17" fill="#b3d4e1">Lesion masks</text>
+
+    <rect x="415" y="160" width="270" height="180" rx="18" fill="#123247" stroke="#36748c"/>
+    <text x="443" y="207" font-size="21" font-weight="700" fill="#f3fbff">Manifest layer</text>
+    <text x="443" y="242" font-size="17" fill="#b3d4e1">Path resolution</text>
+    <text x="443" y="270" font-size="17" fill="#b3d4e1">Patient, side and view</text>
+    <text x="443" y="298" font-size="17" fill="#b3d4e1">Image and mask linkage</text>
   </g>
-  <g font-family="Arial, sans-serif">
-    <circle cx="109" cy="228" r="20" fill="url(#accent)"/><text x="102" y="235" font-size="18" font-weight="700" fill="#06131f">1</text><text x="98" y="278" font-size="22" font-weight="700" fill="#f3fbff">Restricted</text><text x="98" y="306" font-size="22" font-weight="700" fill="#f3fbff">imaging data</text><text x="98" y="339" font-size="15" fill="#add1df">Images and source</text><text x="98" y="360" font-size="15" fill="#add1df">annotation records</text>
-    <circle cx="345" cy="228" r="20" fill="url(#accent)"/><text x="338" y="235" font-size="18" font-weight="700" fill="#06131f">2</text><text x="334" y="278" font-size="22" font-weight="700" fill="#f3fbff">Data</text><text x="334" y="306" font-size="22" font-weight="700" fill="#f3fbff">manifests</text><text x="334" y="339" font-size="15" fill="#add1df">Paths, labels, splits,</text><text x="334" y="360" font-size="15" fill="#add1df">and image roles</text>
-    <circle cx="581" cy="228" r="20" fill="url(#accent)"/><text x="574" y="235" font-size="18" font-weight="700" fill="#06131f">3</text><text x="570" y="278" font-size="22" font-weight="700" fill="#f3fbff">Preprocess</text><text x="570" y="306" font-size="22" font-weight="700" fill="#f3fbff">and load</text><text x="570" y="339" font-size="15" fill="#add1df">Resize, normalize,</text><text x="570" y="360" font-size="15" fill="#add1df">tensor conversion</text>
-    <circle cx="817" cy="228" r="20" fill="url(#accent)"/><text x="810" y="235" font-size="18" font-weight="700" fill="#06131f">4</text><text x="806" y="278" font-size="22" font-weight="700" fill="#f3fbff">Train</text><text x="806" y="306" font-size="22" font-weight="700" fill="#f3fbff">models</text><text x="806" y="339" font-size="15" fill="#add1df">Transfer learning,</text><text x="806" y="360" font-size="15" fill="#add1df">weighted loss</text>
-    <circle cx="1053" cy="228" r="20" fill="url(#accent)"/><text x="1046" y="235" font-size="18" font-weight="700" fill="#06131f">5</text><text x="1034" y="278" font-size="22" font-weight="700" fill="#f3fbff">Run</text><text x="1034" y="306" font-size="22" font-weight="700" fill="#f3fbff">artifacts</text><text x="1034" y="339" font-size="15" fill="#add1df">Metrics and</text><text x="1034" y="360" font-size="15" fill="#add1df">curves</text>
+  <path d="M340 250 H400" stroke="#85bdd0" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="70" y="408" width="600" height="247" rx="22" fill="#102c3d" stroke="#5290ce" stroke-width="2"/>
+  <rect x="730" y="408" width="600" height="247" rx="22" fill="#11382f" stroke="#43a987" stroke-width="2"/>
+  <text x="103" y="456" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#f3fbff">A. Manifest-driven binary classification</text>
+  <text x="763" y="456" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#f3fbff">B. Lesion localisation and contextual crops</text>
+
+  <g font-family="Arial, sans-serif" filter="url(#shadow)">
+    <rect x="100" y="492" width="155" height="110" rx="14" fill="url(#blue)"/>
+    <rect x="292" y="492" width="155" height="110" rx="14" fill="url(#blue)"/>
+    <rect x="484" y="492" width="155" height="110" rx="14" fill="url(#blue)"/>
+    <text x="119" y="529" font-size="17" font-weight="700" fill="#07111f">RGB image</text><text x="119" y="555" font-size="15" fill="#07111f">224 resize</text><text x="119" y="579" font-size="15" fill="#07111f">normalise</text>
+    <text x="307" y="529" font-size="17" font-weight="700" fill="#07111f">Pretrained CNN</text><text x="307" y="555" font-size="15" fill="#07111f">ResNet50</text><text x="307" y="579" font-size="15" fill="#07111f">VGG16 / DenseNet</text>
+    <text x="504" y="529" font-size="17" font-weight="700" fill="#07111f">Two outputs</text><text x="504" y="555" font-size="15" fill="#07111f">weighted loss</text><text x="504" y="579" font-size="15" fill="#07111f">F1 checkpointing</text>
+
+    <rect x="760" y="492" width="155" height="110" rx="14" fill="url(#green)"/>
+    <rect x="952" y="492" width="155" height="110" rx="14" fill="url(#green)"/>
+    <rect x="1144" y="492" width="155" height="110" rx="14" fill="url(#green)"/>
+    <text x="779" y="529" font-size="17" font-weight="700" fill="#071b17">Full image + mask</text><text x="779" y="555" font-size="15" fill="#071b17">mask to box</text><text x="779" y="579" font-size="15" fill="#071b17">target creation</text>
+    <text x="970" y="529" font-size="17" font-weight="700" fill="#071b17">Faster R-CNN</text><text x="970" y="555" font-size="15" fill="#071b17">ResNet50-FPN</text><text x="970" y="579" font-size="15" fill="#071b17">H/V flips at 0.5</text>
+    <text x="1163" y="529" font-size="17" font-weight="700" fill="#071b17">Crop helper</text><text x="1163" y="555" font-size="15" fill="#071b17">35% context</text><text x="1163" y="579" font-size="15" fill="#071b17">downstream classifier</text>
   </g>
-  <g stroke="#70abc1" stroke-width="3" marker-end="url(#arrow)"><path d="M272 282H296"/><path d="M508 282H532"/><path d="M744 282H768"/><path d="M980 282H1004"/></g>
-  <rect x="70" y="427" width="1060" height="44" rx="12" fill="#0b2132" stroke="#234b62"/><text x="96" y="456" font-family="Arial, sans-serif" font-size="17" fill="#b8d9e5">Portfolio focus: data preparation • computer vision • transfer learning • training discipline • experiment traceability</text>
+  <g stroke="#c1d9e5" stroke-width="3" marker-end="url(#arrow)"><path d="M255 547 H281"/><path d="M447 547 H473"/><path d="M915 547 H941"/><path d="M1107 547 H1133"/></g>
+  <path d="M550 340 V390 H370 V478" stroke="#85bdd0" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <path d="M550 340 V390 H1030 V478" stroke="#85bdd0" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <rect x="70" y="690" width="1260" height="38" rx="10" fill="#0b2132" stroke="#2c586e"/>
+  <text x="96" y="715" font-family="Arial, sans-serif" font-size="16" fill="#c3e0eb">Engineering evidence: manifests, path linkage, mask-derived boxes, transfer learning, target-aware augmentation, checkpointing and honest evaluation boundaries.</text>
 </svg>
