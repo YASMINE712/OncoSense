@@ -1,0 +1,22 @@
+name: Showcase checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check public repository boundaries
+        run: |
+          test -f README.md
+          test -f docs/technical-overview.md
+          test -f docs/publication-boundaries.md
+          test -f assets/ml-workflow.svg
+          test -f assets/training-curve.png
+          test ! -d data
+          test ! -d png_doss
+          test ! -d saved_models
+          ! find . -type f \( -name '*.pt' -o -name '*.pth' -o -name '*.dcm' -o -name '*.csv' -o -name '*.ipynb' \) -print -quit | grep -q .

@@ -1,0 +1,27 @@
+# Restricted internship material
+data/
+datasets/
+images/
+png_doss/
+*.dcm
+*.nii
+*.nii.gz
+*.pt
+*.pth
+*.ckpt
+runs/
+logs/
+checkpoints/
+saved_models/
+*.csv
+*.xlsx
+*.ipynb
+
+# Local environments and tooling
+.venv/
+venv/
+stage/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.env
