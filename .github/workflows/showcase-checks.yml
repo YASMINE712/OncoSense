@@ -17,6 +17,8 @@ jobs:
           test -f docs/pseudocode.md
           test -f docs/publication-boundaries.md
           test -f assets/ml-workflow.svg
+          test -f assets/oncosense-architecture.png
+          test -f docs/gallery.md
           test -f assets/training-curve.png
           test ! -d data
           test ! -d png_doss

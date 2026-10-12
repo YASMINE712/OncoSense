@@ -13,7 +13,9 @@ It explores **two complementary computer-vision paths**:
 
 The project is an exploratory research workflow. It is not a clinical decision system and it makes no diagnostic-performance claim.
 
-![OncoSense technical architecture](assets/ml-workflow.svg)
+![OncoSense technical architecture](assets/oncosense-architecture.png)
+
+[Open the visual gallery](docs/gallery.md) for the full architecture and existing training artefact.
 
 ## What the data pipeline does
 
